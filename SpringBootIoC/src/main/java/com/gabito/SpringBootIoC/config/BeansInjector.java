@@ -13,14 +13,13 @@ import com.gabito.SpringBootIoC.service.ProductService;
 @Configuration
 public class BeansInjector {
 	
-	@Bean
-	
+	@Bean("productMySQLRepository")
+	@Primary
 	public ProductRepositoryA createProductRepositoryA() {
 		return new ProductRepositoryA() ;
 	}
 	
-	@Bean
-	@Primary
+	@Bean("productXMLRepository")
 	public ProductRepositoryB createProductRepositoryB() {
 		return new ProductRepositoryB();
 	}
