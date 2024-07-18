@@ -1,5 +1,11 @@
 package com.gabito.SpringBootIoC.repository;
 
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
+//@Component("productXMLRepository")
+@Repository("productXMLRepository")
 public class ProductRepositoryB implements ProductRepository {
 	
 	

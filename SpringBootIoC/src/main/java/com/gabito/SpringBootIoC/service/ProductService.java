@@ -1,9 +1,14 @@
 package com.gabito.SpringBootIoC.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.gabito.SpringBootIoC.repository.ProductRepository;
 
+//@Component
+@Service
 public class ProductService {
 	
 	@Autowired

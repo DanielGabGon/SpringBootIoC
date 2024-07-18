@@ -1,5 +1,12 @@
 package com.gabito.SpringBootIoC.repository;
 
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
+//@Component("productMySQLRepository")
+@Repository("productMySQLRepository")
+@Primary
 public class ProductRepositoryA implements ProductRepository{
 	
 	
