@@ -1,8 +1,8 @@
 package com.gabito.SpringBootIoC.service;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.gabito.SpringBootIoC.repository.ProductRepository;
@@ -10,15 +10,13 @@ import com.gabito.SpringBootIoC.repository.ProductRepository;
 //@Component
 @Service
 public class ProductService {
-	
-	@Autowired
-//	@Qualifier("productMySQLRepository") 
+
 	private ProductRepository productRepository;
 	
 	
-	
-	
-	public ProductService() {
+	public ProductService(@Qualifier("productXMLRepository")ProductRepository productRepository) {
+		
+		this.productRepository=productRepository;
 		System.out.println("Creando instancia de "+ this.getClass().getSimpleName());
 	}
 
