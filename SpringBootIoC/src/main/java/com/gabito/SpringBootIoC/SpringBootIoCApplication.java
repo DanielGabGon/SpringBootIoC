@@ -4,6 +4,7 @@ package com.gabito.SpringBootIoC;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,6 +18,11 @@ import com.gabito.SpringBootIoC.service.ShoppingCarService;
 @SpringBootApplication
 @RestController
 public class SpringBootIoCApplication{
+	
+	String descripcion="Camisa manga corta";
+	
+	@Value("${messages.success}")
+	private String messages;
 
 
     @Autowired
@@ -40,6 +46,11 @@ public class SpringBootIoCApplication{
 	public String example(){
 		productService.save("Zapatos Nike");
 		return "Hello Spring Boot IoC";
+	}
+	
+	@RequestMapping("/get-message")
+	public String getExample(){
+		return messages;
 	}
 	
 	@RequestMapping("/add-products")
