@@ -4,6 +4,7 @@ package com.gabito.SpringBootIoC.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,9 @@ public class ProductService {
 
 	private ProductRepository productRepository;
 	
+	@Value("${messages.success}")
+	private String messages;
+	
 	
 	public ProductService() {
 		
@@ -38,6 +42,7 @@ public class ProductService {
 	@PostConstruct
 	public void postConstruct() {
 		System.out.println("=======> Creando instancia de "+this.getClass().getSimpleName());
+		System.out.println("=========> Mensaje desde application.properties :"+ messages);
 	}
 	
 	@PreDestroy
