@@ -1,6 +1,7 @@
 package com.gabito.SpringBootIoC.service;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -14,9 +15,9 @@ public class ProductService {
 	private ProductRepository productRepository;
 	
 	
-	public ProductService(@Qualifier("productXMLRepository")ProductRepository productRepository) {
+	public ProductService() {
 		
-		this.productRepository=productRepository;
+
 		System.out.println("Creando instancia de "+ this.getClass().getSimpleName());
 	}
 
@@ -32,6 +33,13 @@ public class ProductService {
 		System.out.println("== REMOVE "+ this.getClass().getSimpleName()+ "==");
 		System.out.println("Producto eliminado exitosamente :"+name );
 		productRepository.remove(name);
+	}
+
+	
+    @Autowired
+    @Qualifier("productXMLRepository")
+	public void setProductRepository(ProductRepository productRepository) {
+		this.productRepository = productRepository;
 	}
 	
 }

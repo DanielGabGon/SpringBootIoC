@@ -19,8 +19,8 @@ public class SpringBootIoCApplication{
 	
 	
 
-	public SpringBootIoCApplication(ProductService  productService) {
-	        this.productService=productService;
+	public SpringBootIoCApplication() {
+
 	}
 
 
@@ -38,6 +38,11 @@ public class SpringBootIoCApplication{
 			
 	
 		};
+	}
+
+    @Autowired
+	public void setProductService(ProductService productService) {
+		this.productService = productService;
 	}
 	
 	
