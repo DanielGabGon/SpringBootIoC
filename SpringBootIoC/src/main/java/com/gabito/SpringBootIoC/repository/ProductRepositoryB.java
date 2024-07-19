@@ -4,14 +4,23 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+
 //@Component("productXMLRepository")
 @Repository("productXMLRepository")
 public class ProductRepositoryB implements ProductRepository {
 	
 	
 	
-	public ProductRepositoryB() {
-		 System.out.println("Creando instancia de "+ this.getClass().getSimpleName());
+	@PostConstruct
+	public void postConstruct() {
+		System.out.println("=======> Creando instancia de "+this.getClass().getSimpleName());
+	}
+	
+	@PreDestroy
+	public void preDestroy() {
+		System.out.println("=========> Destruyendo instancia de "+ this.getClass().getSimpleName());
 	}
 
 
